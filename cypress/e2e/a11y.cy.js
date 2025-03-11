@@ -11,15 +11,18 @@ describe('Cypress Simulator - A11y Checks', () => {
     })
     cy.injectAxe() //injecting axe-core library, which is a tool for automated accessibility testing
   })
-  it('successfully simulates a Cypress command cy.log Yay! on Cypress Output area', () => {
-    cy.run("cy.log('Yay!')")
+  Cypress._.times(100, () => {
+    //
+    it('successfully simulates a Cypress command cy.log Yay! on Cypress Output area', () => {
+      cy.run("cy.log('Yay!')")
 
-    cy.get('[id="outputArea"]', { timeout: 6000 })
-      .should('contain', 'Success:')
-      .and('contain', "cy.log('Yay!') // Logged message 'Yay!'")
-      .and('be.visible')
+      cy.get('[id="outputArea"]', { timeout: 6000 })
+        .should('contain', 'Success:')
+        .and('contain', "cy.log('Yay!') // Logged message 'Yay!'")
+        .and('be.visible')
 
-    cy.checkA11y('.success') //check the a11y issues on the success message only
+      cy.checkA11y('.success') //check the a11y issues on the success message only
+    })
   })
   it('shows an error when entering and running an invalid Cypress command cy.run', () => {
     cy.run('cy.run')
