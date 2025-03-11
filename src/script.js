@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const checkExistingSession = () => {
     const sessionData = localStorage.getItem("cypressSimulatorSession")
-    if (sessionData) {
+    //if (sessionData) {
       const { expiresAt } = JSON.parse(sessionData)
       if (new Date().getTime() < expiresAt) {
         loginForm.style.display = "none"
@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const storedConsent = localStorage.getItem("cookieConsent")
     const isLoggedIn = localStorage.getItem("cypressSimulatorSession")
 
-    if (!isLoggedIn) {
+   // if (!isLoggedIn) {
       cookieConsentBanner.style.display = "none"
       return
     }
