@@ -1,18 +1,6 @@
 name: End-to-end tests
 on: push
 jobs:
-  cypress-run:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Cypress run
-        uses: cypress-io/github-action@v6
-
-```yml
-name: End-to-end tests
-on: push
-jobs:
   tests:
     runs-on: ubuntu-22.04
     strategy:
@@ -27,4 +15,3 @@ jobs:
         env:
           SPLIT: ${{ strategy.job-total }}
           SPLIT_INDEX: ${{ strategy.job-index }}
-          ```
